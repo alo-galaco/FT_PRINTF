@@ -29,10 +29,20 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 int	ft_print_char(va_list args)
 {
 	ft_putchar_fd(va_arg (args, int), 1);
-	return (0);
+	return (1);
 }
 
 int	ft_print_string(va_list args)
@@ -44,13 +54,13 @@ int	ft_print_string(va_list args)
 	r = (va_arg(args, char *));
 	if (!r)
 	{
-		ft_putstr_fd("(null)", 1)
+		ft_putstr_fd("(null)", 1);
 		return (count);
 	}
 	else
 	{
 		ft_putstr_fd(r, 1);
-		count = 
+		count = ft_strlen(r);
 	}
 	return (count);
 }

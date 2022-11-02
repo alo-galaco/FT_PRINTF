@@ -17,8 +17,10 @@
 # include <unistd.h>
 
 int		ft_printf(const char *str, ...);
+int		ft_print_char(va_list args);
+int		ft_print_string(va_list args);
+size_t	ft_strlen(const char *str);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-int		ft_print_char(va_list args);
 
 #endif

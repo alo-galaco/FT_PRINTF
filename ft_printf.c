@@ -49,7 +49,7 @@ static int ft_check(char s, va_list args)
 	if (s == 'c')
 		count += ft_print_char(args);
 	else if (s == 's')
-		count += 
+		count += ft_print_string(args);
 	// else if (s == 'p')
 	// else if (s == 'd')
 	// else if (s == 'i')
@@ -67,5 +67,6 @@ int main(void)
 	
 	ft_printf("Hello World 42!\n");
 	ft_printf("%c\n", 'd');
+	ft_printf("%s\n", str);
 	return (0);
 }
