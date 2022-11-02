@@ -6,11 +6,13 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/02 04:01:39 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/02 18:09:15 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int ft_check(char format, va_list args);
 
 int ft_printf(const char *str, ...)
 {
@@ -23,35 +25,47 @@ int ft_printf(const char *str, ...)
 	len = 0;
 	while (str[i])
 	{
-		if (str != '%')
+		if (str[i] != '%')
 		{
-			ft_putchar_fd (str[i], 1);
+			ft_putchar_fd(str[i], 1);
 			len++;
 		}
-		// else
-		// {
-		// 	i++;
-		// 	len =
-		// }
+		else
+		{
+			i++;
+			len = ft_check(str[i], args);
+		}
 		i++;
 	}
 	va_end(args);
 	return (len);
 }
 
-int main(void)
+static int ft_check(char s, va_list args)
 {
-	ft_printf("Hello World 42");
-	return (0);
+	int	count;
+
+	count = 0;
+	if (s == 'c')
+		count += ft_print_char(args);
+	else if (s == 's')
+		count += 
+	// else if (s == 'p')
+	// else if (s == 'd')
+	// else if (s == 'i')
+	// else if (s == 'u')
+	// else if (s == 'x')
+	// else if (s == 'X')
+	// else if (s == '%')
+
+	return (count);
 }
 
-// static int ft_check(char format, va_list args)
-// {
-// 	int	count;
-
-// 	count = 0;
-// 	if (c == 'c')
-// 	if (c == '%')
-
-// 	return (count);
-// }
+int main(void)
+{
+	char	str[20] = "Hello World 42";
+	
+	ft_printf("Hello World 42!\n");
+	ft_printf("%c\n", 'd');
+	return (0);
+}

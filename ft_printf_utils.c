@@ -16,3 +16,41 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
 }
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		ft_putchar_fd (s[i], fd);
+		i++;
+	}
+}
+
+int	ft_print_char(va_list args)
+{
+	ft_putchar_fd(va_arg (args, int), 1);
+	return (0);
+}
+
+int	ft_print_string(va_list args)
+{
+	int		count;
+	char	*r;
+
+	count = 0;
+	r = (va_arg(args, char *));
+	if (!r)
+	{
+		ft_putstr_fd("(null)", 1)
+		return (count);
+	}
+	else
+	{
+		ft_putstr_fd(r, 1);
+		count = 
+	}
+	return (count);
+}
