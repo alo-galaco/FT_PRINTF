@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:23 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/02 03:45:47 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:13:12 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 int		ft_printf(const char *str, ...);
 int		ft_print_char(va_list args);
 int		ft_print_string(va_list args);
+int		ft_print_decimal_integer(va_list args);
 size_t	ft_strlen(const char *str);
-void	ft_putchar_fd(char c, int fd);
+int		ft_putchar_fd(int c);
 void	ft_putstr_fd(char *s, int fd);
+char	*ft_itoa(int n);
 
 #endif

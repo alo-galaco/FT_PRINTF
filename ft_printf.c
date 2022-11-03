@@ -6,11 +6,12 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/02 18:09:15 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:23:12 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int ft_check(char format, va_list args);
 
@@ -27,7 +28,7 @@ int ft_printf(const char *str, ...)
 	{
 		if (str[i] != '%')
 		{
-			ft_putchar_fd(str[i], 1);
+			ft_putchar_fd(str[i]);
 			len++;
 		}
 		else
@@ -51,22 +52,29 @@ static int ft_check(char s, va_list args)
 	else if (s == 's')
 		count += ft_print_string(args);
 	// else if (s == 'p')
-	// else if (s == 'd')
-	// else if (s == 'i')
+	else if (s == 'd' || s == 'i')
+		count += ft_print_decimal_integer(args);
 	// else if (s == 'u')
 	// else if (s == 'x')
 	// else if (s == 'X')
-	// else if (s == '%')
-
+	if (s == '%')
+		count = ft_putchar_fd('%');
 	return (count);
 }
 
 int main(void)
 {
 	char	str[20] = "Hello World 42";
+	int		x;
+
+	x = -20;
 	
 	ft_printf("Hello World 42!\n");
 	ft_printf("%c\n", 'd');
 	ft_printf("%s\n", str);
+	ft_printf("%%1\n");
+	printf("%%2\n");
+	ft_printf("%d\n", x);
+	ft_printf("%i\n", x);
 	return (0);
 }

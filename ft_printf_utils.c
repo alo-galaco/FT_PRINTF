@@ -6,15 +6,16 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 02:16:23 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/02 03:37:32 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:22:54 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(int c)
 {
-	write (fd, &c, 1);
+	write (1, &c, 1);
+	return (1);
 }
 
 void	ft_putstr_fd(char *s, int fd)
@@ -24,7 +25,7 @@ void	ft_putstr_fd(char *s, int fd)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		ft_putchar_fd (s[i], fd);
+		ft_putchar_fd (s[i]);
 		i++;
 	}
 }
@@ -39,9 +40,57 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
+static int	ft_digitlen(long int nb)
+{
+	int	count;
+
+	count = 0;
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
+	{
+		nb = -nb;
+		count++;
+	}
+	while (nb > 0)
+	{
+		nb = nb / 10;
+		count++;
+	}
+	return (count);
+}
+
+char	*ft_itoa(int n)
+{
+	char		*ptr;
+	long int	nb;
+	int			size;
+
+	nb = n;
+	size = ft_digitlen(nb);
+	ptr = (char *)malloc(size + 1);
+	if (!ptr)
+		return (NULL);
+	ptr[size--] = '\0';
+	if (nb == 0)
+		ptr[0] = 48;
+	if (nb < 0)
+	{
+		nb = -nb;
+		ptr[0] = '-';
+	}
+	while (nb > 0)
+	{
+		ptr[size--] = nb % 10 + '0';
+		nb -= nb % 10;
+		nb /= 10;
+	}
+	return (ptr);
+}
+
 int	ft_print_char(va_list args)
 {
-	ft_putchar_fd(va_arg (args, int), 1);
+	ft_putchar_fd(va_arg (args, int));
 	return (1);
 }
 
@@ -63,4 +112,19 @@ int	ft_print_string(va_list args)
 		count = ft_strlen(r);
 	}
 	return (count);
+}
+
+int	ft_print_decimal_integer(va_list args)
+{
+	int		size;
+	int		i;
+	char	*ptr;
+
+	size = (va_arg(args, int));
+	ptr = ft_itoa(size);
+	i = 0;
+	ft_putstr_fd(ptr, 1);
+	size += ft_strlen(i);
+	free(i);
+	return (size);
 }
