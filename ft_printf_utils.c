@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 02:16:23 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/06 02:08:23 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:41:52 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,18 +124,31 @@ int	ft_print_decimal_integer(va_list args)
 	ptr = ft_itoa(size);
 	i = 0;
 	ft_putstr_fd(ptr, 1);
-	size = 0;
-	size += ft_strlen(i);
-	free(i);
-	return (size);
+	i += ft_strlen(ptr);
+	free(ptr);
+	return (i);
 }
 
 int	ft_print_unsigned(va_list args)
 {
-	char		*ptr;
-	long int	nb;
-	int			size;
-	int			n;
+	unsigned int		size;
+	int		i;
+	char	*ptr;
+
+	size = (va_arg(args, unsigned int));
+	ptr = ft_uitoa(size);
+	i = 0;
+	ft_putstr_fd(ptr, 1);
+	i += ft_strlen(ptr);
+	free(ptr);
+	return (i);
+}
+
+char	*ft_uitoa(unsigned int n)
+{
+	char				*ptr;
+	unsigned long int	nb;
+	int					size;
 
 	nb = n;
 	size = ft_digitlen(nb);
@@ -145,8 +158,6 @@ int	ft_print_unsigned(va_list args)
 	ptr[size--] = '\0';
 	if (nb == 0)
 		ptr[0] = 48;
-	if (nb < 0)
-		return (NULL);
 	while (nb > 0)
 	{
 		ptr[size--] = nb % 10 + '0';

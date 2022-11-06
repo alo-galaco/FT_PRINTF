@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/06 02:09:50 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:23:17 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static int ft_check(char s, va_list args)
 		count += ft_print_decimal_integer(args);
 	else if (s == 'u')
 		count += ft_print_unsigned(args);
-	// else if (s == 'x')
-	// else if (s == 'X')
+	else if (s == 'x' || s == 'X')
+		count += ft_print_hexadecimal(args);
 	if (s == '%')
 		count = ft_putchar_fd('%');
 	return (count);
@@ -67,19 +67,20 @@ int main(void)
 {
 	char	str[20] = "Hello World 42";
 	int	x;
+	int	y;
 
-	x = 10;
+	x = 15;
+	y = 20.5;
 	
 	ft_printf("Hello World 42!\n");
 	ft_printf("%c\n", 'd');
 	ft_printf("%s\n", str);
-	ft_printf("%%%1\n");
-	printf("%%%2\n");
-	// ft_printf("%d\n", x);
-	// ft_printf("%i\n", x);
-	printf("%u\n", x);
-	ft_printf("%u\n", x);
-	printf("%i\n", x);
+	ft_printf("%%\n");
+	printf("%%\n");
+	ft_printf("%d\n", x);
+	ft_printf("%i\n", x);
+	printf("%u\n", y);
+	ft_printf("%u\n", y);
 
 	return (0);
 }
