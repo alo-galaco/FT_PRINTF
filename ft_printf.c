@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/06 17:23:17 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/08 02:25:10 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,23 @@ int ft_printf(const char *str, ...)
 
 static int ft_check(char s, va_list args)
 {
-	int	count;
+	int	len;
 
-	count = 0;
+	len = 0;
 	if (s == 'c')
-		count += ft_print_char(args);
+		len += ft_print_char(va_arg (args, int));
 	else if (s == 's')
-		count += ft_print_string(args);
+		len += ft_print_string(va_arg (args, char *));
 	// else if (s == 'p')
 	else if (s == 'd' || s == 'i')
-		count += ft_print_decimal_integer(args);
+		len += ft_print_decimal_integer(va_arg (args, int));
 	else if (s == 'u')
-		count += ft_print_unsigned(args);
+		len += ft_print_unsigned(va_arg (args, unsigned int));
 	else if (s == 'x' || s == 'X')
-		count += ft_print_hexadecimal(args);
+		len += ft_print_hexadecimal(va_arg (args, unsigned int));
 	if (s == '%')
-		count = ft_putchar_fd('%');
-	return (count);
+		len = ft_putchar_fd('%');
+	return (len);
 }
 
 int main(void)

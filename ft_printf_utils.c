@@ -6,28 +6,33 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 02:16:23 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/06 17:41:52 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/08 04:01:11 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_fd(int c)
+int	ft_putchar(int c)
 {
 	write (1, &c, 1);
 	return (1);
 }
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr(char *s)
 {
 	int	i;
+	int	len;
 
 	i = 0;
+	len = 0;
+	if (!str)
+		return (write(1, "(null)", 6));
 	while (s[i] != '\0')
 	{
-		ft_putchar_fd (s[i]);
+		ft_putchar(s[i]);
 		i++;
 	}
+	return (len);
 }
 
 size_t	ft_strlen(const char *str)
@@ -86,12 +91,6 @@ char	*ft_itoa(int n)
 		nb /= 10;
 	}
 	return (ptr);
-}
-
-int	ft_print_char(va_list args)
-{
-	ft_putchar_fd(va_arg (args, int));
-	return (1);
 }
 
 int	ft_print_string(va_list args)
