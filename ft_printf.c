@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 01:02:19 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:59:50 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,11 @@ int ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] != '%')
-		{
-			ft_putchar(str[i]);
-			len++;
-		}
+			len += ft_putchar(str[i]);
 		else
 		{
 			i++;
-			len = ft_check(str[i], args);
+			len += ft_check(str[i], args);
 		}
 		i++;
 	}
@@ -57,9 +54,9 @@ static int ft_check(char s, va_list args)
 	else if (s == 'u')
 		len += ft_print_unsigned(va_arg (args, unsigned int));
 	else if (s == 'x' || s == 'X')
-		len += ft_print_hexadecimal(va_arg (args, unsigned int));
+		len += ft_print_hexadecimal(va_arg (args, unsigned int), s);
 	if (s == '%')
-		len = ft_putchar_fd('%');
+		len = ft_putchar('%');
 	return (len);
 }
 
@@ -70,7 +67,7 @@ int main(void)
 	int	y;
 
 	x = 15;
-	y = 20.5;
+	y = 20;
 	
 	ft_printf("Hello World 42!\n");
 	ft_printf("%c\n", 'd');

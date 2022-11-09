@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 01:08:53 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 01:10:52 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:26:51 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_print_unsigned(unsigned int size)
 
 	ptr = ft_uitoa(size);
 	i = 0;
-	ft_putstr_fd(ptr, 1);
+	ft_putstr(ptr);
 	i += ft_strlen(ptr);
 	free(ptr);
 	return (i);

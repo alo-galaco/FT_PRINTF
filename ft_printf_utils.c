@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 02:16:23 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 01:09:28 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:28:03 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_putstr(char *s)
 
 	i = 0;
 	len = 0;
-	if (!str)
+	if (!s)
 		return (write(1, "(null)", 6));
 	while (s[i] != '\0')
 	{

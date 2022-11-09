@@ -6,13 +6,13 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 01:02:32 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 01:09:32 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:30:32 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_digitlen(long int nb)
+int	ft_digitlen(long int nb)
 {
 	int	count;
 
@@ -67,7 +67,7 @@ int	ft_print_decimal_integer(int	size)
 
 	ptr = ft_itoa(size);
 	i = 0;
-	ft_putstr(ptr, 1);
+	ft_putstr(ptr);
 	i += ft_strlen(ptr);
 	free(ptr);
 	return (i);
