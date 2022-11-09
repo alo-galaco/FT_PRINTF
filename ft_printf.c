@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 04:00:48 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 04:12:43 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,9 @@ int main(void)
 	ft_printf("%i\n", x);
 	printf("%u\n", y);
 	ft_printf("%u\n", y);
-	ft_printf("%x\n", x);
-	ft_printf("%X\n", x);
+	ft_printf("%x\n", y);
+	ft_printf("%X\n", y);
+	printf("%p\n", str);
 	ft_printf("%p\n", str);
 
 	return (0);

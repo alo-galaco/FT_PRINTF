@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 04:03:19 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 01:26:10 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 04:15:27 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_string(char	*str)
 {
-	int		count;
+	int	count;
 
 	count = 0;
 	if (!str)
@@ -23,6 +23,9 @@ int	ft_print_string(char	*str)
 		return (count);
 	}
 	else
-		count += write(1, &(*str++), 1);
+	{
+		while (*str)
+			count += write(1, &(*str++), 1);
+	}
 	return (count);
 }

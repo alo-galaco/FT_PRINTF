@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 01:39:56 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 04:08:09 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 04:11:58 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 int	ft_print_hexadecimal(unsigned int i, char c)
 {
-	int		count;
+	int	count;
 
 	count = 0;
-
-	if (c <= 16)
+	if (i <= 16)
 	{
 		if(c == 'x')
-			return(ft_putchar(HEX_LOWER[count]));
+			return(ft_putchar(HEX_LOWER[i]));
 		else
-			return(ft_putchar(HEX_UPPER[count]));
+			return(ft_putchar(HEX_UPPER[i]));
 	}
 	count += ft_print_hexadecimal(i / 16, c);
 	if(c == 'x')
