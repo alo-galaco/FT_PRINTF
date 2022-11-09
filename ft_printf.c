@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 01:59:50 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 04:00:48 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ static int ft_check(char s, va_list args)
 		len += ft_print_char(va_arg (args, int));
 	else if (s == 's')
 		len += ft_print_string(va_arg (args, char *));
-	// else if (s == 'p')
+	else if (s == 'p')
+		len += ft_print_pointer(va_arg(args, unsigned long));
 	else if (s == 'd' || s == 'i')
 		len += ft_print_decimal_integer(va_arg (args, int));
 	else if (s == 'u')
@@ -78,6 +79,9 @@ int main(void)
 	ft_printf("%i\n", x);
 	printf("%u\n", y);
 	ft_printf("%u\n", y);
+	ft_printf("%x\n", x);
+	ft_printf("%X\n", x);
+	ft_printf("%p\n", str);
 
 	return (0);
 }
