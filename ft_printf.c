@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 04:12:43 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/10 00:11:00 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int ft_printf(const char *str, ...)
 	va_start(args, str);
 	i = 0;
 	len = 0;
+	if (!str)
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] != '%')
@@ -61,28 +63,3 @@ static int ft_check(char s, va_list args)
 	return (len);
 }
 
-int main(void)
-{
-	char	str[20] = "Hello World 42";
-	int	x;
-	int	y;
-
-	x = 15;
-	y = 20;
-	
-	ft_printf("Hello World 42!\n");
-	ft_printf("%c\n", 'd');
-	ft_printf("%s\n", str);
-	ft_printf("%%\n");
-	printf("%%\n");
-	ft_printf("%d\n", x);
-	ft_printf("%i\n", x);
-	printf("%u\n", y);
-	ft_printf("%u\n", y);
-	ft_printf("%x\n", y);
-	ft_printf("%X\n", y);
-	printf("%p\n", str);
-	ft_printf("%p\n", str);
-
-	return (0);
-}
