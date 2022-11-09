@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:23 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/08 04:01:35 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:06:39 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <unistd.h>
 
 int		ft_printf(const char *str, ...);
-int		ft_print_char(int char).
-int		ft_print_string(va_list args);
-int		ft_print_decimal_integer(va_list args);
+int		ft_print_char(int char);
+int		ft_print_string(char *str);
+int		ft_print_decimal_integer(int	size);
 int		ft_print_unsigned(va_list args);
 size_t	ft_strlen(const char *str);
 int		ft_putchar_fd(int c);

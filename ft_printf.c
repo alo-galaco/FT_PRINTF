@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/08 02:25:10 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:02:19 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int ft_printf(const char *str, ...)
 	{
 		if (str[i] != '%')
 		{
-			ft_putchar_fd(str[i]);
+			ft_putchar(str[i]);
 			len++;
 		}
 		else
