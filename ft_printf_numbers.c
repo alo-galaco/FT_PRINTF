@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 02:16:23 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/10 01:02:17 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/12 00:14:37 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	ft_print_decimal_integer(int size)
 int	ft_print_unsigned(unsigned int size)
 {
 	int		i;
-	char	c;
 
 	i = 0;
 	if (size >= 10)

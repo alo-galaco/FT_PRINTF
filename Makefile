@@ -6,7 +6,7 @@
 #    By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 01:38:18 by flcristi          #+#    #+#              #
-#    Updated: 2022/11/10 01:35:20 by flcristi         ###   ########.fr        #
+#    Updated: 2022/11/12 00:13:55 by flcristi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ all: ${NAME}
 ${NAME}: ${OBJ}
 
 %.o: %.c
-	cc $(FLAGS) -c $< -o $@
+	cc $(CFLAGS) -c $< -o $@
 	ar rcs $(NAME) $@
 
 clean:
