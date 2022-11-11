@@ -6,13 +6,13 @@
 #    By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 01:38:18 by flcristi          #+#    #+#              #
-#    Updated: 2022/11/08 04:02:04 by flcristi         ###   ########.fr        #
+#    Updated: 2022/11/10 00:30:52 by flcristi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libftprintf.all
+NAME	= libftprintf.a
 
-SRC		= ft_printf.c ft_printf_utils.c print_char.c
+SRC		= ft_printf.c ft_printf_numbers.c ft_print_char.c
 
 OBJ		= ${SRC:%.c=%.o}
 

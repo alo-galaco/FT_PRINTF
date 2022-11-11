@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:23 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 04:04:10 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/10 00:24:52 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@
 int		ft_printf(const char *str, ...);
 int		ft_print_char(int c);
 int		ft_print_string(char *str);
-int		ft_print_decimal_integer(int	size);
+int		ft_print_decimal_integer(int size);
 int		ft_print_unsigned(unsigned int size);
-int		ft_print_hexadecimal(unsigned int, char c);
+int		ft_print_hexadecimal(unsigned int i, char c);
 int		ft_print_pointer(unsigned long ptr);
-int		ft_putchar(int c);
-int		ft_putstr(char *s);
 
 #endif

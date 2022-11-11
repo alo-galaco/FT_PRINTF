@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_unsigned.c                                   :+:      :+:    :+:   */
+/*   print_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 01:08:53 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/09 03:39:50 by flcristi         ###   ########.fr       */
+/*   Created: 2022/11/08 04:03:19 by flcristi          #+#    #+#             */
+/*   Updated: 2022/11/10 00:28:25 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_unsigned(unsigned int size)
+int	ft_print_char(int c)
 {
-	int		i;
-	char	c;
+	write (1, &c, 1);
+	return (1);
+}
 
-	i = 0;
-	if (size >= 10)
-		i += ft_print_unsigned(size / 10);
-	i += ft_putchar(size % 10 + '0');
-	return (i);
+int	ft_print_string(char	*str)
+{
+	int	count;
+
+	count = 0;
+	if (!str)
+	{
+		count += write (1, "(null)", 6);
+		return (count);
+	}
+	else
+	{
+		while (*str)
+			count += write (1, &(*str++), 1);
+	}
+	return (count);
 }

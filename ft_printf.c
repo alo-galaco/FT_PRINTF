@@ -6,16 +6,16 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/10 00:11:00 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/10 00:24:31 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static int ft_check(char format, va_list args);
+static int	ft_check(char format, va_list args);
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
@@ -29,7 +29,7 @@ int ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] != '%')
-			len += ft_putchar(str[i]);
+			len += ft_print_char(str[i]);
 		else
 		{
 			i++;
@@ -41,7 +41,7 @@ int ft_printf(const char *str, ...)
 	return (len);
 }
 
-static int ft_check(char s, va_list args)
+static int	ft_check(char s, va_list args)
 {
 	int	len;
 
@@ -59,7 +59,6 @@ static int ft_check(char s, va_list args)
 	else if (s == 'x' || s == 'X')
 		len += ft_print_hexadecimal(va_arg (args, unsigned int), s);
 	if (s == '%')
-		len = ft_putchar('%');
+		len = ft_print_char('%');
 	return (len);
 }
-
