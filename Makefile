@@ -6,17 +6,17 @@
 #    By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 01:38:18 by flcristi          #+#    #+#              #
-#    Updated: 2022/11/10 00:30:52 by flcristi         ###   ########.fr        #
+#    Updated: 2022/11/10 01:35:20 by flcristi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 
-SRC		= ft_printf.c ft_printf_numbers.c ft_print_char.c
+SRC		= ft_printf.c ft_printf_numbers.c ft_printf_char.c
 
 OBJ		= ${SRC:%.c=%.o}
 
-CFLAGS	= -Wall -Wextra - Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 all: ${NAME}
 

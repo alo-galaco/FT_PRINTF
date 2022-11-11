@@ -6,12 +6,11 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:38:02 by flcristi          #+#    #+#             */
-/*   Updated: 2022/11/10 00:24:31 by flcristi         ###   ########.fr       */
+/*   Updated: 2022/11/10 01:34:51 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	ft_check(char format, va_list args);
 
@@ -47,17 +46,17 @@ static int	ft_check(char s, va_list args)
 
 	len = 0;
 	if (s == 'c')
-		len += ft_print_char(va_arg (args, int));
+		len += ft_print_char(va_arg(args, int));
 	else if (s == 's')
-		len += ft_print_string(va_arg (args, char *));
+		len += ft_print_string(va_arg(args, char *));
 	else if (s == 'p')
 		len += ft_print_pointer(va_arg(args, unsigned long));
 	else if (s == 'd' || s == 'i')
-		len += ft_print_decimal_integer(va_arg (args, int));
+		len += ft_print_decimal_integer(va_arg(args, int));
 	else if (s == 'u')
-		len += ft_print_unsigned(va_arg (args, unsigned int));
+		len += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (s == 'x' || s == 'X')
-		len += ft_print_hexadecimal(va_arg (args, unsigned int), s);
+		len += ft_print_hexadecimal(va_arg(args, unsigned int), s);
 	if (s == '%')
 		len = ft_print_char('%');
 	return (len);
