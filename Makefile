@@ -6,7 +6,7 @@
 #    By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 01:38:18 by flcristi          #+#    #+#              #
-#    Updated: 2022/11/12 00:13:55 by flcristi         ###   ########.fr        #
+#    Updated: 2022/11/21 22:46:13 by flcristi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,9 @@ ${NAME}: ${OBJ}
 clean:
 	rm -f ${OBJ}
 
-fclean:
+fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
